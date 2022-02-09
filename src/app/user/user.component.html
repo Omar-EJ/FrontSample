@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="card" style="margin-top: 3%">
+    <form class="form-signin" [formGroup]="UserForm" (ngSubmit)="addUser()">
+      <div class="col" style="margin-left: 3%">
+        <h3 class="h3 mb-3 font-weight-normal text-center"> Nouvel Utilisateur</h3>
+        <div class="form-group item">
+          <i class="fas fa-user"></i>
+          <label class="label">Nom </label>
+          <input type="text" class="form-control input" formControlName="nom" placeholder="Nom" >
+        </div>
+        <div class="form-group item">
+          <i class="fas fa-mail"></i>
+          <label class="label">Mail</label>
+          <input type="text"  class="form-control input" formControlName="mail" placeholder="Mail">
+        </div>
+        <div class="form-group item">
+          <i class="fas fa-mail"></i>
+          <label class="label">Mot de passe</label>
+          <input type="text"  class="form-control input" formControlName="motdepasse" placeholder="PWD">
+        </div>
+        <div class="addUserBtn">
+          <button type="submit" class="btn btn-success" style="margin-top: 3%"
+          >Add User</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <ng-container *ngFor="let user of users">
+    <div class="card" style="margin-right: 10%;margin-top: 5%;padding: 2%">
+      <div class="row cstmRow" >
+        <p style="font-weight: bold;font-size: larger">Nom : </p>
+        <p style="font-size: larger">{{user.nom}}</p>
+      </div>
+      <div class="row cstmRow">
+        <p style="font-weight: bold">Adresse Mail :</p>
+        <p>{{user.mail}}</p>
+      </div>
+      <div class="row cstmRow">
+        <p style="font-weight: bold">Mot de passe :</p>
+        <p>{{user.motdepasse}}</p>
+      </div>
+      <div>
+        <button class="btn-danger" style="border-radius: 5px" (click)="Delete(user._id)">Delete</button>
+      </div>
+    </div>
+  </ng-container>
+</div>
